@@ -396,7 +396,6 @@ export default function Index() {
           <div className="grid md:grid-cols-3 gap-6 mb-10">
             {[
               { icon: "Phone", title: "Телефон", value: "+7 (912) 421-32-27", sub: "Ежедневно 8:00–21:00" },
-              { icon: "MessageCircle", title: "WhatsApp / Telegram", value: "@pesproguiki", sub: "Отвечаем быстро" },
               { icon: "MapPin", title: "Адрес", value: "г. Ноябрьск", sub: "Работаем по всему городу" },
             ].map(c => (
               <div key={c.title} className="text-center p-6 rounded-3xl" style={{ background: "rgba(255,255,255,0.1)" }}>
