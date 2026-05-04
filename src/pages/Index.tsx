@@ -15,10 +15,10 @@ const services = [
 ];
 
 const prices = [
-  { name: "Экспресс", duration: "30 мин", price: "350", popular: false },
-  { name: "Стандарт", duration: "60 мин", price: "550", popular: true },
-  { name: "VIP", duration: "90 мин", price: "850", popular: false },
-  { name: "Абонемент", duration: "10 прогулок", price: "4 500", popular: false },
+  { name: "Экспресс", duration: "30 мин", price: "600", popular: false },
+  { name: "Стандарт", duration: "60 мин", price: "1 000", popular: true },
+  { name: "VIP", duration: "90 мин", price: "1 500", popular: false },
+  { name: "Абонемент", duration: "10 прогулок", price: "5 000", popular: false },
 ];
 
 const reviews = [
