@@ -395,7 +395,7 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-3 gap-6 mb-10">
             {[
-              { icon: "Phone", title: "Телефон", value: "+7 (345) 000-00-00", sub: "Ежедневно 8:00–21:00" },
+              { icon: "Phone", title: "Телефон", value: "+7 (912) 421-32-27", sub: "Ежедневно 8:00–21:00" },
               { icon: "MessageCircle", title: "WhatsApp / Telegram", value: "@pesproguiki", sub: "Отвечаем быстро" },
               { icon: "MapPin", title: "Адрес", value: "г. Ноябрьск", sub: "Работаем по всему городу" },
             ].map(c => (
