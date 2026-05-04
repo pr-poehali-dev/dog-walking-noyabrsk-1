@@ -102,7 +102,7 @@ export default function Index() {
               <a href="#services" className="btn-outline text-center rounded-2xl">Узнать подробнее</a>
             </div>
             <div className="flex gap-8 mt-10 animate-fade-in-up delay-400">
-              {[["200+", "счастливых собак"], ["3 года", "на рынке"], ["100%", "довольных хозяев"]].map(([num, label]) => (
+              {[["200+", "счастливых собак"], ["2 года", "на рынке"], ["100%", "довольных хозяев"]].map(([num, label]) => (
                 <div key={label}>
                   <div className="text-2xl font-black" style={{ fontFamily: "Caveat, cursive", color: "var(--warm-amber)" }}>{num}</div>
                   <div className="text-xs" style={{ color: "#92400e" }}>{label}</div>
