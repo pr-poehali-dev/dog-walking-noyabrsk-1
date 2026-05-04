@@ -1,6 +1,14 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
+const BOOKINGS_API = "https://functions.poehali.dev/6d7ec3e8-2a56-4129-9405-e672f040587d";
+
+function getClientId(): string {
+  let id = localStorage.getItem("dog_client_id");
+  if (!id) { id = crypto.randomUUID(); localStorage.setItem("dog_client_id", id); }
+  return id;
+}
+
 type BookingState = { date: string; time: string; service: string; name: string; phone: string; dog: string };
 
 const IMG_HERO = "https://cdn.poehali.dev/projects/330cd952-4b1d-4d56-90e3-f65e3a446771/files/6b21730f-9499-4db0-918a-b51ffdbe6cd0.jpg";
@@ -48,9 +56,16 @@ export default function Index() {
   ];
 
   const handleBooking = () => {
-    setBookingDone(true);
-    setBookingStep(1);
-    setBooking({ date: "", time: "", service: "", name: "", phone: "", dog: "" });
+    const clientId = getClientId();
+    fetch(BOOKINGS_API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Client-Id": clientId },
+      body: JSON.stringify(booking),
+    }).finally(() => {
+      setBookingDone(true);
+      setBookingStep(1);
+      setBooking({ date: "", time: "", service: "", name: "", phone: "", dog: "" });
+    });
   };
 
   return (
@@ -66,6 +81,9 @@ export default function Index() {
             {navLinks.map(l => (
               <a key={l.href} href={l.href} className="text-sm font-medium transition-colors hover:text-amber-600" style={{ color: "#78350f" }}>{l.label}</a>
             ))}
+            <a href="/my-bookings" className="text-sm font-medium transition-colors hover:text-amber-600 flex items-center gap-1" style={{ color: "#78350f" }}>
+              <Icon name="CalendarCheck" size={15} /> Мои брони
+            </a>
             <a href="#booking" className="btn-primary text-sm px-5 py-2.5 rounded-xl">Забронировать</a>
           </div>
           <button className="md:hidden p-2" onClick={() => setMenuOpen(!menuOpen)}>
@@ -77,6 +95,9 @@ export default function Index() {
             {navLinks.map(l => (
               <a key={l.href} href={l.href} className="text-sm font-medium" style={{ color: "var(--warm-brown)" }} onClick={() => setMenuOpen(false)}>{l.label}</a>
             ))}
+            <a href="/my-bookings" className="text-sm font-medium flex items-center gap-1" style={{ color: "var(--warm-brown)" }} onClick={() => setMenuOpen(false)}>
+              <Icon name="CalendarCheck" size={15} /> Мои брони
+            </a>
             <a href="#booking" className="btn-primary text-sm text-center rounded-xl" onClick={() => setMenuOpen(false)}>Забронировать</a>
           </div>
         )}

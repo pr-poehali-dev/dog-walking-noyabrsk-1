@@ -1,0 +1,32 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS CORS",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "POST create booking",
+      "method": "POST",
+      "path": "/",
+      "headers": { "X-Client-Id": "test-client-123" },
+      "body": {
+        "service": "Стандартная прогулка",
+        "date": "2025-06-01",
+        "time": "10:00",
+        "name": "Тест Тестов",
+        "phone": "+7 (999) 000-00-00",
+        "dog": "Бобик, дворняжка"
+      },
+      "expectedStatus": 200
+    },
+    {
+      "name": "GET my bookings",
+      "method": "GET",
+      "path": "/?mode=my",
+      "headers": { "X-Client-Id": "test-client-123" },
+      "expectedStatus": 200
+    }
+  ]
+}
